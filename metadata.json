@@ -1,0 +1,6 @@
+{
+  "name": "PPID Kemenag Kota Mojokerto - Precision Manufacturing & Informasi Publik",
+  "description": "Portal Resmi PPID Kemenag Kota Mojokerto: Solusi Manufaktur Modern, Precision Engineering, Fabrikasi Logam, Industrial Automation, dan Layanan Keterbukaan Informasi Publik.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
