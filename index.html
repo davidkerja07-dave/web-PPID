@@ -7,24 +7,30 @@
     <meta name="description" content="Portal Resmi PPID Kemenag Kota Mojokerto: Solusi Manufaktur Modern, Precision Engineering, Fabrikasi Logam, Industrial Automation, dan Layanan Keterbukaan Informasi Publik." />
     <meta name="keywords" content="PPID Kemenag Kota Mojokerto, manufaktur Mojokerto, precision engineering, fabrikasi logam, CNC machining, laser cutting, industrial automation, informasi publik, Kemenag Mojokerto" />
     <meta name="author" content="PPID Kemenag Kota Mojokerto" />
-    
+    <link rel="canonical" href="https://ppidkotamojokerto.com/" />
+
     <!-- Open Graph -->
     <meta property="og:title" content="PPID Kemenag Kota Mojokerto - Precision Manufacturing & Informasi Publik" />
     <meta property="og:description" content="Portal Resmi PPID Kemenag Kota Mojokerto: Solusi Manufaktur Modern, Precision Engineering, Fabrikasi Logam, Industrial Automation, dan Layanan Keterbukaan Informasi Publik." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="id_ID" />
-    
+    <meta property="og:url" content="https://ppidkotamojokerto.com/" />
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="PPID Kemenag Kota Mojokerto - Precision Manufacturing & Informasi Publik" />
     <meta name="twitter:description" content="Portal Resmi PPID Kemenag Kota Mojokerto: Solusi Manufaktur Modern, Precision Engineering, Fabrikasi Logam, Industrial Automation, dan Layanan Keterbukaan Informasi Publik." />
-    
+
     <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+    <!-- Official Favicon -->
     <link rel="icon" type="image/webp" href="/assets/aistudio/Logo_Kemenag_7bf78457.webp" />
+
+    <!-- Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -33,8 +39,8 @@
       "@type": "GovernmentOrganization",
       "name": "PPID Kemenag Kota Mojokerto",
       "alternateName": "Pejabat Pengelola Informasi dan Dokumentasi Kemenag Kota Mojokerto",
-      "url": "https://kemenag-mojokertokota.go.id",
-      "logo": "https://kemenag-mojokertokota.go.id/logo.png",
+      "url": "https://ppidkotamojokerto.com",
+      "logo": "https://ppidkotamojokerto.com/assets/aistudio/Logo_Kemenag_7bf78457.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jl. Taman Siswa No. 16, Mergelo, Magersari",
@@ -53,9 +59,1265 @@
     }
     </script>
   </head>
-  <body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-blue-600 selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+  <body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased font-sans transition-colors duration-200 selection:bg-blue-600 selection:text-white">
+    <!-- Toast Notification -->
+    <div id="global-toast" class="hidden fixed top-24 right-6 z-50 px-4 py-3 bg-emerald-600 text-white rounded-xl shadow-xl text-xs font-semibold">
+      <span id="global-toast-text">Tersimpan!</span>
+    </div>
+
+    <!-- TOP BAR -->
+    <div id="site-topbar" class="bg-slate-900 text-slate-300 text-xs py-2 px-4 sm:px-8 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="font-medium text-white">Portal Resmi PPID Kemenag Kota Mojokerto</span>
+          <span class="hidden md:inline text-slate-500">|</span>
+          <span class="hidden md:inline text-slate-400">Layanan Informasi &amp; Presisi Manufaktur</span>
+        </div>
+        <div class="flex items-center gap-4 text-slate-300">
+          <span data-bind="hours" class="hidden sm:inline font-mono">Senin - Jumat: 07.30 - 16.00 WIB</span>
+          <span class="hidden sm:inline text-slate-600">·</span>
+          <a href="tel:0321322123" class="hover:text-amber-400 transition-colors flex items-center gap-1 font-mono">
+            <span data-bind="phone">(0321) 322123</span>
+          </a>
+          <span class="text-slate-600">·</span>
+          <button type="button" data-nav-route="admin" class="hover:text-blue-400 transition-colors font-medium">
+            Portal Admin
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header id="site-header" class="sticky top-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-200 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
+        <!-- Brand Logo + Title -->
+        <a href="#beranda" data-nav-route="beranda" class="flex items-center gap-3 text-left group shrink-0">
+          <img
+            src="/assets/aistudio/Logo_Kemenag_7bf78457.webp"
+            alt="Logo Kementerian Agama Republik Indonesia"
+            width="46"
+            height="46"
+            class="w-[46px] h-[46px] shrink-0 object-contain drop-shadow-sm group-hover:scale-105 transition-transform"
+          />
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-xl tracking-tight text-blue-900 dark:text-blue-400">PPID</span>
+              <span class="font-bold text-lg tracking-tight text-slate-900 dark:text-white">Kemenag Kota Mojokerto</span>
+            </div>
+            <span class="text-[11px] font-medium text-slate-500 dark:text-slate-400 tracking-wide uppercase">
+              Precision Manufacturing &amp; Public Information
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden xl:flex items-center gap-1 text-[13px] font-medium text-slate-700 dark:text-slate-200">
+          <a href="#beranda" data-nav-route="beranda" class="px-3 py-2 rounded-lg transition-colors whitespace-nowrap hover:text-blue-700 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900">Beranda</a>
+          <a href="#profil" data-nav-route="profil" class="px-3 py-2 rounded-lg transition-colors whitespace-nowrap hover:text-blue-700 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900">Profil</a>
+          <a href="#regulasi" data-nav-route="regulasi" class="px-3 py-2 rounded-lg transition-colors whitespace-nowrap hover:text-blue-700 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900">Regulasi</a>
+          <a href="#layanan" data-nav-route="layanan" class="px-3 py-2 rounded-lg transition-colors whitespace-nowrap hover:text-blue-700 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900">Layanan Informasi</a>
+          <a href="#informasi-publik" data-nav-route="informasi-publik" class="px-3 py-2 rounded-lg transition-colors whitespace-nowrap hover:text-blue-700 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900">Informasi Publik</a>
+
+          <!-- Dropdown Lainnya -->
+          <div class="relative group">
+            <button type="button" class="px-3 py-2 rounded-lg transition-colors flex items-center gap-1 whitespace-nowrap hover:text-blue-700 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900">
+              <span>Lainnya</span>
+              <span class="text-[10px]">▼</span>
+            </button>
+            <div class="absolute right-0 top-full mt-1 w-56 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 hidden group-hover:block">
+              <a href="#daftar-informasi" data-nav-route="daftar-informasi" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Daftar Informasi (DIP)</a>
+              <a href="#standar-layanan" data-nav-route="standar-layanan" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Standar Layanan &amp; Maklumat</a>
+              <div class="my-1 border-t border-slate-100 dark:border-slate-800"></div>
+              <a href="#project" data-nav-route="project" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Galeri Project Manufaktur</a>
+              <a href="#artikel" data-nav-route="artikel" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Artikel &amp; Berita Mutu</a>
+              <a href="#kontak" data-nav-route="kontak" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Kontak &amp; Lokasi Kantor</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3 shrink-0">
+          <button type="button" data-toggle-theme class="p-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Ganti mode gelap/terang">
+            <span data-theme-sun class="hidden text-amber-400">☀</span>
+            <span data-theme-moon>☾</span>
+          </button>
+
+          <button type="button" data-open-permohonan="Informasi Publik" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold text-white bg-blue-700 hover:bg-blue-800 active:scale-95 shadow-md shadow-blue-700/20 transition-all whitespace-nowrap">
+            <span>Ajukan Permohonan</span>
+            <span>&rarr;</span>
+          </button>
+
+          <button type="button" id="mobile-menu-btn" class="xl:hidden p-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Buka menu navigasi">
+            ☰
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div id="mobile-drawer" class="hidden xl:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 shadow-xl">
+        <div class="flex flex-col gap-1">
+          <a href="#beranda" data-nav-route="beranda" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Beranda</a>
+          <a href="#profil" data-nav-route="profil" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Profil</a>
+          <a href="#regulasi" data-nav-route="regulasi" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Regulasi</a>
+          <a href="#layanan" data-nav-route="layanan" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Layanan Informasi</a>
+          <a href="#informasi-publik" data-nav-route="informasi-publik" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Informasi Publik</a>
+          <a href="#daftar-informasi" data-nav-route="daftar-informasi" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Daftar Informasi</a>
+          <a href="#standar-layanan" data-nav-route="standar-layanan" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Standar Layanan</a>
+          <a href="#project" data-nav-route="project" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Project</a>
+          <a href="#artikel" data-nav-route="artikel" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Artikel</a>
+          <a href="#kontak" data-nav-route="kontak" data-mobile-nav class="px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Kontak</a>
+          <div class="pt-3 mt-2 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2">
+            <button type="button" data-nav-route="admin" class="w-full py-2.5 px-3.5 text-left text-sm rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium flex items-center justify-between">
+              <span>Portal Admin Dashboard</span>
+              <span class="text-xs text-blue-600 dark:text-blue-400">Masuk &rarr;</span>
+            </button>
+            <button type="button" data-open-permohonan="Informasi Publik" class="w-full py-3 rounded-lg text-sm font-semibold text-white bg-blue-700 hover:bg-blue-800 text-center shadow-md">
+              Ajukan Permohonan Informasi
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1">
+
+      <!-- ==================== 1. BERANDA ==================== -->
+      <section data-page="beranda" class="space-y-24 pb-16">
+        <!-- HERO SECTION -->
+        <div class="relative pt-8 sm:pt-14 pb-12 overflow-hidden">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 text-xs font-semibold text-blue-700 dark:text-blue-400">
+                  <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400"></span>
+                  <span class="tracking-wide uppercase">PPID &amp; Pusat Rekayasa Manufaktur Presisi</span>
+                  <span class="text-slate-400">·</span>
+                  <span class="text-slate-500 dark:text-slate-400">Kota Mojokerto</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15]">
+                  Solusi Manufaktur Presisi &amp; <span class="text-blue-700 dark:text-blue-400">Keterbukaan Informasi</span> Berstandar Tinggi
+                </h1>
+
+                <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                  Mengintegrasikan keunggulan rekayasa mesin modern—fabrikasi lembaran logam, pemesinan CNC 5-Axis, pemotongan fiber laser 12kW, dan otomasi industri—dengan tata kelola transparansi pelayanan publik yang akuntabel dan berintegritas.
+                </p>
+
+                <div class="pt-2 flex flex-wrap items-center gap-4">
+                  <button type="button" data-open-permohonan="Layanan Manufaktur" class="px-6 py-3.5 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-xl shadow-lg shadow-blue-700/25 active:scale-95 transition-all flex items-center gap-2 text-sm">
+                    <span>Hubungi Kami &amp; Konsultasi</span>
+                    <span>&rarr;</span>
+                  </button>
+                  <button type="button" data-go="layanan" class="px-6 py-3.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-white font-semibold rounded-xl border border-slate-300 dark:border-slate-700 active:scale-95 transition-all text-sm shadow-sm">
+                    Lihat Seluruh Layanan
+                  </button>
+                </div>
+
+                <div class="pt-4 flex flex-wrap items-center gap-6 text-xs text-slate-500 dark:text-slate-400">
+                  <span>✓ Jaminan Akurasi Dimensi Mikron</span>
+                  <span>✓ Pelayanan Informasi Tanpa Pungli</span>
+                  <span>✓ Standar Mutu ISO 9001:2015</span>
+                </div>
+              </div>
+
+              <!-- Right Visual + 4 Floating Cards -->
+              <div class="lg:col-span-5 relative">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 aspect-[4/3] group">
+                  <img src="/images/hero-industrial.jpg" alt="Fasilitas Rekayasa Manufaktur Modern PPID Kemenag Kota Mojokerto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                  <div class="absolute bottom-4 left-4 right-4 text-white text-xs">
+                    <p class="font-semibold text-sm">Fasilitas Presisi &amp; Otomasi Pabrik</p>
+                    <p class="text-slate-300 text-[11px]">Kapasitas produksi industri terdistribusi &amp; tersertifikasi</p>
+                  </div>
+                </div>
+
+                <!-- Floating Card 1 -->
+                <div class="absolute -top-6 -left-4 sm:-left-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 shadow-xl flex items-center gap-3">
+                  <div class="w-9 h-9 bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 rounded-lg flex items-center justify-center font-bold">★</div>
+                  <div>
+                    <div class="font-extrabold text-base font-mono text-slate-900 dark:text-white">20+ Tahun</div>
+                    <div class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Pengalaman Industri</div>
+                  </div>
+                </div>
+
+                <!-- Floating Card 2 -->
+                <div class="absolute -bottom-6 -right-2 sm:-right-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 shadow-xl flex items-center gap-3">
+                  <div class="w-9 h-9 bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400 rounded-lg flex items-center justify-center font-bold">◆</div>
+                  <div>
+                    <div class="font-extrabold text-base font-mono text-slate-900 dark:text-white">500+ Project</div>
+                    <div class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Selesai &amp; Beroperasi</div>
+                  </div>
+                </div>
+
+                <!-- Floating Card 3 -->
+                <div class="hidden sm:flex absolute top-1/2 -right-5 -translate-y-1/2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 shadow-lg items-center gap-2.5">
+                  <span class="text-emerald-500 font-bold">✓</span>
+                  <div>
+                    <span class="block text-xs font-bold text-slate-900 dark:text-white font-mono">ISO Certified</span>
+                    <span class="block text-[10px] text-slate-500 dark:text-slate-400">ISO 9001:2015</span>
+                  </div>
+                </div>
+
+                <!-- Floating Card 4 -->
+                <div class="hidden sm:flex absolute bottom-8 -left-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 shadow-lg items-center gap-2.5">
+                  <span class="text-amber-500 font-bold">★</span>
+                  <div>
+                    <span class="block text-xs font-bold text-slate-900 dark:text-white font-mono">98% Satisfaction</span>
+                    <span class="block text-[10px] text-slate-500 dark:text-slate-400">Tingkat Kepuasan Klien</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLIENT LOGOS -->
+        <div class="border-y border-slate-200 dark:border-slate-800 bg-slate-100/60 dark:bg-slate-900/40 py-10">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6">
+              Dipercaya Oleh Mitra Industri, Badan Publik, dan Institusi Nasional
+            </p>
+            <div id="home-clients-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center"></div>
+          </div>
+        </div>
+
+        <!-- TENTANG (2 KOLOM) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 space-y-4">
+              <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 aspect-[4/3] relative">
+                <img src="/images/corporate-hq.jpg" alt="Gedung PPID & Workshop Kemenag Kota Mojokerto" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4 text-white text-xs">
+                  <span class="font-mono text-amber-400 text-xs font-semibold">GEDUNG UTAMA &amp; WORKSHOP</span>
+                  <p class="font-medium text-sm mt-0.5">Jl. Taman Siswa No. 16, Kota Mojokerto</p>
+                </div>
+              </div>
+              <div class="p-5 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 text-xs space-y-2">
+                <h4 class="font-bold text-blue-900 dark:text-blue-300 text-sm">Komitmen Mutu &amp; Integritas Pelayanan</h4>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                  Setiap proses fabrikasi logam dan permohonan informasi publik diawasi langsung dengan sistem manajemen mutu ISO 9001:2015 serta kepatuhan penuh terhadap Peraturan Komisi Informasi No. 1 Tahun 2021.
+                </p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-6">
+              <div class="space-y-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">Tentang Kami</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                  Membangun Sinergi Rekayasa Industri Presisi dan Akuntabilitas Publik
+                </h2>
+              </div>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                PPID Kementerian Agama Kota Mojokerto tidak hanya menjalankan fungsi birokrasi keterbukaan informasi, namun juga memelopori integrasi fasilitas workshop permesinan presisi untuk mendukung pengadaan sarana prasarana teknis, suku cadang mesin, dan pelatihan teknologi manufaktur bagi masyarakat Jawa Timur.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2 shadow-sm">
+                  <div class="text-blue-700 dark:text-blue-400 font-bold text-sm">Visi Kami</div>
+                  <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Menjadi pusat layanan informasi publik dan rekayasa manufaktur presisi yang unggul, transparan, terpercaya, serta berdaya saing global untuk kemajuan umat dan bangsa.
+                  </p>
+                </div>
+                <div class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2 shadow-sm">
+                  <div class="text-amber-600 dark:text-amber-400 font-bold text-sm">Misi Kami</div>
+                  <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 leading-relaxed">
+                    <li>• Menjamin hak publik atas informasi secara cepat dan akurat.</li>
+                    <li>• Menghasilkan produk manufaktur berkualitas standar ISO.</li>
+                    <li>• Mendorong digitalisasi dan efisiensi teknologi otomasi.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button type="button" data-go="profil" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 dark:text-blue-400 hover:text-blue-800 transition-colors">
+                  <span>Pelajari Sejarah &amp; Struktur Organisasi Lengkap</span>
+                  <span>&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION LAYANAN (8+ LAYANAN) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div class="space-y-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">Kapabilitas &amp; Layanan</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                Solusi Terpadu Manufaktur, Fabrikasi &amp; Layanan Informasi
+              </h2>
+            </div>
+            <div id="home-layanan-filters" class="flex flex-wrap items-center gap-1.5 p-1 bg-slate-200/70 dark:bg-slate-800/80 rounded-xl"></div>
+          </div>
+          <div id="home-layanan-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+        </div>
+
+        <!-- SECTION KEUNGGULAN -->
+        <div class="bg-slate-900 text-white py-16">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Mengapa Memilih Kami</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Keunggulan Rekayasa Presisi &amp; Standar Kualitas PPID</h2>
+              <p class="text-sm text-slate-400">Kombinasi teknologi industri terdepan, transparansi biaya, dan pengawasan mutu tanpa kompromi demi kepuasan klien.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/80 hover:border-blue-500 transition-colors space-y-3">
+                <div class="w-10 h-10 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center font-bold">01</div>
+                <h3 class="font-bold text-base text-white">Teknologi Modern Terintegrasi</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Didukung mesin CNC 5-Axis high-speed, fiber laser cutting 12kW, pemindai 3D optik, dan perangkat lunak CAM terkini.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/80 hover:border-blue-500 transition-colors space-y-3">
+                <div class="w-10 h-10 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center font-bold">02</div>
+                <h3 class="font-bold text-base text-white">Tim Ahli &amp; Welder Bersertifikasi</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Juru las tersertifikasi Kemenaker dan inspektur las AWS D1.1 berpengalaman menangani permesinan komponen kritis.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/80 hover:border-blue-500 transition-colors space-y-3">
+                <div class="w-10 h-10 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center font-bold">03</div>
+                <h3 class="font-bold text-base text-white">Kualitas Mutu Terjamin</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Pengawasan mutu menyeluruh (QC/QA), pengujian radiografi/ultrasonic (NDT), dan kalibrasi CMM hingga toleransi mikron.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/80 hover:border-blue-500 transition-colors space-y-3">
+                <div class="w-10 h-10 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center font-bold">04</div>
+                <h3 class="font-bold text-base text-white">Pengiriman Tepat Waktu (On-Time SLA)</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Manajemen proyek digital memastikan setiap tahapan manufaktur dan respon informasi diselesaikan sesuai target waktu.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/80 hover:border-blue-500 transition-colors space-y-3">
+                <div class="w-10 h-10 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center font-bold">05</div>
+                <h3 class="font-bold text-base text-white">Biaya Transparan &amp; Kompetitif</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Efisiensi nesting plat hingga 92% menekan biaya material, serta layanan informasi publik gratis tanpa biaya siluman.</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/80 hover:border-blue-500 transition-colors space-y-3">
+                <div class="w-10 h-10 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center font-bold">06</div>
+                <h3 class="font-bold text-base text-white">Garansi Pekerjaan &amp; Purna Jual</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Setiap sistem mesin otomatis dan konstruksi fabrikasi kami lindungi dengan garansi pemeliharaan dan suku cadang.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION STATISTIK (ANIMATED COUNTER) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white shadow-xl">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-blue-700/60">
+              <div class="space-y-1">
+                <div id="stat-years" class="text-3xl sm:text-5xl font-extrabold font-mono text-amber-400 tabular-nums">22+</div>
+                <p class="text-xs sm:text-sm font-medium text-blue-200">Tahun Pengalaman Institusi</p>
+              </div>
+              <div class="pt-4 lg:pt-0 space-y-1">
+                <div id="stat-projects" class="text-3xl sm:text-5xl font-extrabold font-mono text-white tabular-nums">520+</div>
+                <p class="text-xs sm:text-sm font-medium text-blue-200">Project &amp; Pesanan Selesai</p>
+              </div>
+              <div class="pt-4 lg:pt-0 space-y-1">
+                <div id="stat-employees" class="text-3xl sm:text-5xl font-extrabold font-mono text-amber-400 tabular-nums">135+</div>
+                <p class="text-xs sm:text-sm font-medium text-blue-200">Karyawan &amp; Tenaga Ahli</p>
+              </div>
+              <div class="pt-4 lg:pt-0 space-y-1">
+                <div id="stat-satisfaction" class="text-3xl sm:text-5xl font-extrabold font-mono text-white tabular-nums">99%</div>
+                <p class="text-xs sm:text-sm font-medium text-blue-200">Tingkat Kepuasan Klien</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION PROJECT (8 PROJECT) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div class="space-y-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">Portofolio Manufaktur</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Studi Kasus &amp; Implementasi Nyata di Lapangan</h2>
+            </div>
+            <button type="button" data-go="project" class="text-xs font-semibold text-blue-700 dark:text-blue-400 hover:text-blue-800 flex items-center gap-1 self-start md:self-auto">
+              <span>Lihat Semua <span id="home-project-count">8</span> Project</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+          <div id="home-project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </div>
+
+        <!-- SECTION TESTIMONI (SLIDER) -->
+        <div class="bg-slate-100/70 dark:bg-slate-900/40 py-16 border-y border-slate-200 dark:border-slate-800">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">Testimoni Mitra</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Apa Kata Klien dan Pemohon Informasi Kami</h2>
+            </div>
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 sm:p-12 shadow-md border border-slate-200 dark:border-slate-800">
+              <div class="flex flex-col items-center text-center space-y-6">
+                <div id="testi-stars" class="text-amber-400 text-lg">★★★★★</div>
+                <blockquote id="testi-quote" class="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-medium italic"></blockquote>
+                <div class="space-y-1">
+                  <div id="testi-author" class="font-bold text-slate-900 dark:text-white text-base"></div>
+                  <div id="testi-role" class="text-xs text-slate-500 dark:text-slate-400"></div>
+                  <div id="testi-context" class="text-[11px] font-mono text-slate-400 mt-1"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between pt-6 border-t border-slate-100 dark:border-slate-800 mt-6">
+                <button type="button" id="testi-prev" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-600 hover:text-white transition-colors" aria-label="Testimoni sebelumnya">&lsaquo;</button>
+                <div id="testi-dots" class="flex items-center gap-1.5"></div>
+                <button type="button" id="testi-next" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-600 hover:text-white transition-colors" aria-label="Testimoni berikutnya">&rsaquo;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION ARTIKEL (6 ARTIKEL) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div class="space-y-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">Warta &amp; Berita Mutu</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Artikel Edukasi Teknis &amp; Informasi Publik Terkini</h2>
+            </div>
+            <button type="button" data-go="artikel" class="text-xs font-semibold text-blue-700 dark:text-blue-400 hover:text-blue-800 flex items-center gap-1 self-start md:self-auto">
+              <span>Lihat Semua Artikel</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+          <div id="home-artikel-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+
+        <!-- SECTION CTA -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="relative rounded-3xl bg-slate-900 text-white p-8 sm:p-14 overflow-hidden border border-slate-800 shadow-2xl">
+            <div class="relative z-10 max-w-2xl space-y-5">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Kemitraan &amp; Layanan</span>
+              <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+                Siap Mewujudkan Proyek Manufaktur atau Membutuhkan Informasi Resmi?
+              </h2>
+              <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                Tim engineering dan meja informasi publik PPID Kemenag Kota Mojokerto siap melayani kebutuhan Anda dengan profesionalisme, presisi tinggi, dan transparansi penuh.
+              </p>
+              <div class="pt-2 flex flex-wrap items-center gap-4">
+                <button type="button" data-open-permohonan="Layanan Manufaktur" class="px-6 py-3.5 bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold rounded-xl text-sm transition-all shadow-lg shadow-blue-600/30">
+                  Ajukan Penawaran / Permohonan &rarr;
+                </button>
+                <button type="button" data-go="kontak" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 active:scale-95 text-white font-semibold rounded-xl text-sm border border-slate-700 transition-all">
+                  Kunjungi Kantor Kami
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 2. PROFIL ==================== -->
+      <section data-page="profil" class="hidden space-y-20 pb-20">
+        <div class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Profil Institusi &amp; Fasilitas</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Profil PPID Kemenag Kota Mojokerto</h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Menegakkan keterbukaan informasi publik yang transparan sekaligus menggerakkan solusi rekayasa manufaktur presisi modern bagi industri nasional.
+            </p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-6 space-y-5">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">Sejarah &amp; Latar Belakang</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Dua Dekade Mengabdi: Dari Bengkel Perawatan Hingga Pusat Presisi Terpadu</h2>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Berdiri di jantung historis Kota Mojokerto, Kantor Kementerian Agama Kota Mojokerto mengembangkan unit kerja PPID dan fasilitas workshop permesinan presisi sebagai wujud dedikasi kepada masyarakat. Kami meyakini bahwa transparansi tata kelola pemerintahan harus berjalan beriringan dengan kemampuan nyata dalam memproduksi teknologi dan peralatan berdaya guna tinggi.
+            </p>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+              Sejak diundangkannya UU KIP Nomor 14 Tahun 2008, PPID Kemenag Kota Mojokerto secara konsisten memperoleh predikat Badan Publik Informatif dari Komisi Informasi Provinsi Jawa Timur. Di saat yang sama, fasilitas permesinan kami terus diperbaharui dengan teknologi 5-Axis CNC, Laser Cutting 12kW, serta laboratorium perancangan CAD/CAM.
+            </p>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 aspect-[4/3] relative">
+              <img src="/images/corporate-hq.jpg" alt="Gedung Pelayanan Terpadu" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-100/70 dark:bg-slate-900/40 py-16 border-y border-slate-200 dark:border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div class="text-center space-y-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">Fondasi Organisasi</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Visi, Misi &amp; Nilai Perusahaan</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+                <h3 class="font-extrabold text-lg text-blue-700 dark:text-blue-400">Visi Organisasi</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  "Terwujudnya pelayanan informasi publik yang transparan, profesional, dan akuntabel serta keunggulan rekayasa manufaktur presisi yang berdaya saing tinggi demi kemajuan industri dan kesejahteraan masyarakat berlandaskan nilai-nilai integritas."
+                </p>
+              </div>
+              <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+                <h3 class="font-extrabold text-lg text-amber-600 dark:text-amber-400">Misi Strategis</h3>
+                <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-2 leading-relaxed">
+                  <li>✓ Menjamin akses informasi publik yang mudah, cepat, dan tanpa pungutan biaya sesuai UU KIP.</li>
+                  <li>✓ Menghasilkan produk manufaktur logam, pemesinan presisi, dan otomasi berstandar mutu ISO 9001:2015.</li>
+                  <li>✓ Meningkatkan kompetensi sumber daya manusia teknis dan integritas aparatur sipil negara.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Perjalanan -->
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="text-center space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">Jejak Langkah</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Timeline Perjalanan Institusi</h2>
+          </div>
+          <div class="space-y-4">
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex gap-5 items-start">
+              <span class="px-3 py-2 rounded-xl bg-blue-50 dark:bg-slate-800 border border-blue-600 text-blue-700 dark:text-blue-400 font-mono font-bold text-sm shrink-0">2004</span>
+              <div><h4 class="font-bold text-sm sm:text-base">Pendirian Workshop Mekanikal Kemenag</h4><p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Awal mula pendirian unit pemeliharaan sarana prasarana dan fabrikasi bengkel kerja permesinan di Kota Mojokerto.</p></div>
+            </div>
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex gap-5 items-start">
+              <span class="px-3 py-2 rounded-xl bg-blue-50 dark:bg-slate-800 border border-blue-600 text-blue-700 dark:text-blue-400 font-mono font-bold text-sm shrink-0">2008</span>
+              <div><h4 class="font-bold text-sm sm:text-base">Implementasi UU No. 14 Tahun 2008</h4><p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Penetapan struktur Pejabat Pengelola Informasi dan Dokumentasi (PPID) untuk keterbukaan informasi publik.</p></div>
+            </div>
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex gap-5 items-start">
+              <span class="px-3 py-2 rounded-xl bg-blue-50 dark:bg-slate-800 border border-blue-600 text-blue-700 dark:text-blue-400 font-mono font-bold text-sm shrink-0">2016</span>
+              <div><h4 class="font-bold text-sm sm:text-base">Modernisasi Mesin CNC &amp; Sertifikasi ISO 9001:2015</h4><p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Pengadaan mesin CNC 5-Axis dan sertifikasi sistem manajemen mutu internasional.</p></div>
+            </div>
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex gap-5 items-start">
+              <span class="px-3 py-2 rounded-xl bg-blue-50 dark:bg-slate-800 border border-blue-600 text-blue-700 dark:text-blue-400 font-mono font-bold text-sm shrink-0">2026</span>
+              <div><h4 class="font-bold text-sm sm:text-base">Portal Terpadu Manufaktur &amp; Layanan Digital PPID</h4><p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Integrasi penuh layanan permohonan informasi daring dan rekayasa manufaktur industri.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tim Ahli -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="text-center space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">Struktur Tim</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Pimpinan PPID &amp; Tim Rekayasa Engineering</h2>
+          </div>
+          <div id="profil-team-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+      </section>
+
+      <!-- ==================== 3. REGULASI ==================== -->
+      <section data-page="regulasi" class="hidden space-y-12 pb-20">
+        <div class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Payung Hukum &amp; Keterbukaan Publik</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Regulasi &amp; Dasar Hukum</h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Kumpulan peraturan perundang-undangan Republik Indonesia, peraturan menteri, serta standar operasional prosedur teknis PPID Kemenag Kota Mojokerto.
+            </p>
+          </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div class="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
+            <input id="regulasi-search" type="text" placeholder="Cari regulasi, nomor surat, atau kata kunci..." class="w-full md:max-w-md px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-blue-500" />
+            <div id="regulasi-filters" class="flex flex-wrap items-center gap-1.5"></div>
+          </div>
+          <div id="regulasi-list" class="space-y-4"></div>
+        </div>
+      </section>
+
+      <!-- ==================== 4. LAYANAN ==================== -->
+      <section data-page="layanan" class="hidden space-y-12 pb-20">
+        <div class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Katalog Layanan &amp; Fasilitas</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Layanan Manufaktur &amp; Informasi Terpadu</h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Menyediakan kapabilitas rekayasa mesin presisi, fabrikasi lembaran logam modern, pemrograman otomasi pabrik, hingga akses pelayanan informasi publik resmi.
+            </p>
+          </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div class="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
+            <input id="layanan-search" type="text" placeholder="Cari spesifikasi mesin, layanan, atau kata kunci..." class="w-full md:max-w-md px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-blue-500" />
+            <div id="layanan-page-filters" class="flex flex-wrap items-center gap-1.5"></div>
+          </div>
+          <div id="layanan-page-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+      </section>
+
+      <!-- ==================== DETAIL LAYANAN ==================== -->
+      <section data-page="detail-layanan" class="hidden space-y-16 pb-20">
+        <div class="bg-slate-900 text-white py-14 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <button type="button" data-go="layanan" class="text-xs text-slate-400 hover:text-white transition-colors">&larr; Kembali ke Daftar Layanan</button>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <div id="dl-category" class="text-xs font-semibold text-amber-400 uppercase tracking-wider"></div>
+                <h1 id="dl-title" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"></h1>
+                <p id="dl-shortdesc" class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl"></p>
+                <div class="pt-2">
+                  <button type="button" data-open-permohonan="Layanan Manufaktur" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md">Ajukan Penawaran Layanan Ini</button>
+                </div>
+              </div>
+              <div class="lg:col-span-5">
+                <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-700 aspect-[4/3]">
+                  <img id="dl-image" src="/images/laser-cutting.jpg" alt="Detail Layanan" class="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-7 space-y-8">
+            <div class="space-y-3">
+              <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Gambaran &amp; Ruang Lingkup Layanan</h2>
+              <p id="dl-desc" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify"></p>
+            </div>
+            <div class="space-y-4">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Keunggulan &amp; Manfaat Utama</h3>
+              <div id="dl-benefits" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 space-y-6">
+            <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <div class="font-bold text-base border-b border-slate-100 dark:border-slate-800 pb-3">Spesifikasi Kapabilitas Teknis</div>
+              <div id="dl-specs" class="space-y-3 text-xs"></div>
+              <button type="button" data-open-permohonan="Layanan Manufaktur" class="w-full py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-semibold shadow">Minta Penawaran Spesifikasi Khusus</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <h2 id="dl-faq-title" class="text-xl sm:text-2xl font-bold text-center text-slate-900 dark:text-white">FAQ Layanan</h2>
+          <div id="dl-faqs" class="space-y-3"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="p-8 sm:p-12 rounded-3xl bg-slate-900 text-white text-center space-y-4 border border-slate-800 shadow-xl">
+            <h3 id="dl-cta-title" class="text-xl sm:text-2xl font-extrabold"></h3>
+            <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <button type="button" data-open-permohonan="Layanan Manufaktur" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-xl shadow-md">Ajukan Tiket Permohonan</button>
+              <button type="button" data-go="kontak" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl border border-slate-700">Hubungi Kontak Kantor</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 5. INFORMASI PUBLIK ==================== -->
+      <section data-page="informasi-publik" class="hidden space-y-12 pb-20">
+        <div class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Keterbukaan Informasi Publik (UU No. 14/2008)</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Klasifikasi Informasi Publik</h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Akses resmi terhadap informasi berkala, informasi serta-merta, informasi setiap saat, dan hasil uji konsekuensi informasi yang dikecualikan.
+            </p>
+          </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div class="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
+            <input id="info-search" type="text" placeholder="Cari judul dokumen, satuan kerja, atau tahun..." class="w-full md:max-w-md px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-blue-500" />
+            <div id="info-filters" class="flex flex-wrap items-center gap-1.5"></div>
+          </div>
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">
+                  <th class="py-3.5 px-4">Nama Dokumen Informasi</th>
+                  <th class="py-3.5 px-4">Klasifikasi</th>
+                  <th class="py-3.5 px-4">Unit Penanggung Jawab</th>
+                  <th class="py-3.5 px-4">Tahun</th>
+                  <th class="py-3.5 px-4">Format / Ukuran</th>
+                  <th class="py-3.5 px-4 text-right">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="info-table-body" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 6. DAFTAR INFORMASI (DIP) ==================== -->
+      <section data-page="daftar-informasi" class="hidden space-y-12 pb-20">
+        <div class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Dokumen Resmi DIP Tahun 2026</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Daftar Informasi Publik (DIP)</h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Daftar Informasi Publik yang wajib disediakan dan diumumkan secara berkala serta setiap saat oleh Kantor Kementerian Agama Kota Mojokerto.
+            </p>
+          </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div class="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-base font-bold">Tabel Rekapitulasi Daftar Informasi Publik (DIP)</h2>
+              <p id="dip-count" class="text-xs text-slate-500 dark:text-slate-400"></p>
+            </div>
+            <input id="dip-search" type="text" placeholder="Cari ringkasan informasi..." class="w-full md:max-w-xs px-3.5 py-2 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:border-blue-500" />
+          </div>
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold uppercase tracking-wider">
+                  <th class="py-3.5 px-4 w-12 text-center">No</th>
+                  <th class="py-3.5 px-4">Ringkasan Isi Informasi</th>
+                  <th class="py-3.5 px-4">Pejabat yang Menguasai</th>
+                  <th class="py-3.5 px-4">Waktu Pembuatan</th>
+                  <th class="py-3.5 px-4">Bentuk &amp; Media</th>
+                  <th class="py-3.5 px-4">Jangka Simpan</th>
+                  <th class="py-3.5 px-4 text-right">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="dip-table-body" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 7. STANDAR LAYANAN ==================== -->
+      <section data-page="standar-layanan" class="hidden space-y-16 pb-20">
+        <div class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Standar Mutu Pelayanan Publik</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Standar Layanan &amp; Maklumat Pelayanan</h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Komitmen resmi PPID Kementerian Agama Kota Mojokerto dalam memberikan pelayanan informasi publik yang transparan, akuntabel, bebas pungli, serta berstandar ISO 9001:2015.
+            </p>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-gradient-to-br from-blue-900 to-indigo-950 text-white p-8 sm:p-12 rounded-3xl shadow-xl border-2 border-amber-400/40 text-center space-y-6">
+            <div class="inline-block px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 font-mono text-xs font-bold tracking-widest uppercase">MAKLUMAT PELAYANAN RESMI</div>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-snug">
+              "DENGAN INI, KAMI MENYATAKAN SANGGUP MENYELENGGARAKAN PELAYANAN SESUAI STANDAR PELAYANAN YANG TELAH DITETAPKAN, SERTA MEMBERIKAN PELAYANAN YANG TRANSPARAN, AKUNTABEL, DAN BEBAS DARI SEGALA BENTUK PUNGUTAN LIAR"
+            </h2>
+            <div class="pt-4 border-t border-blue-700/60 max-w-md mx-auto text-xs text-blue-200">
+              <p class="font-semibold text-white">Kepala Kantor Kementerian Agama Kota Mojokerto</p>
+              <p class="text-slate-300 mt-0.5">Selaku Atasan PPID Kemenag Kota Mojokerto</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <h3 class="font-bold text-lg text-blue-700 dark:text-blue-400">Jangka Waktu Penyelesaian (SLA)</h3>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <li>✓ <strong>10 Hari Kerja:</strong> Pemberitahuan tertulis atas permohonan informasi diterima/ditolak.</li>
+              <li>✓ <strong>Perpanjangan 7 Hari Kerja:</strong> Apabila dokumen memerlukan pengumpulan dan audit uji konsekuensi lanjutan.</li>
+              <li>✓ <strong>Layanan Manufaktur:</strong> Respon review gambar CAD dan penawaran teknis dalam 1x24 jam kerja.</li>
+            </ul>
+          </div>
+          <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <h3 class="font-bold text-lg text-amber-600 dark:text-amber-400">Biaya / Tarif Layanan</h3>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <li>✓ <strong>Informasi Publik: GRATIS (Rp 0,-):</strong> Seluruh permohonan format digital (PDF/softcopy) bebas biaya.</li>
+              <li>✓ <strong>Penggandaan Fisik:</strong> Biaya fotokopi cetak massal ditanggung pemohon sesuai tarif riil.</li>
+              <li>✓ <strong>Produksi Manufaktur:</strong> Berdasarkan Rincian Anggaran Biaya (RAB) resmi material dan jam mesin.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <h3 class="font-bold text-base">Alur Permohonan Informasi Publik</h3>
+            <ol class="space-y-2 text-xs text-slate-600 dark:text-slate-400 list-decimal pl-4">
+              <li>Pemohon mengisi formulir permohonan online atau datang ke Meja Layanan PPID.</li>
+              <li>Petugas memeriksa kelengkapan identitas dan menerbitkan nomor tiket registrasi.</li>
+              <li>PPID mengklasifikasi dokumen terbuka atau uji konsekuensi.</li>
+              <li>Informasi diserahkan maksimal dalam 10 hari kerja.</li>
+            </ol>
+            <button type="button" data-open-permohonan="Informasi Publik" class="w-full py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-semibold shadow">Mulai Permohonan Informasi Sekarang</button>
+          </div>
+          <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <h3 class="font-bold text-base">Alur Pengajuan Keberatan</h3>
+            <ol class="space-y-2 text-xs text-slate-600 dark:text-slate-400 list-decimal pl-4">
+              <li>Keberatan diajukan apabila permohonan ditolak tanpa alasan sah atau melampaui batas waktu.</li>
+              <li>Registrasi keberatan ke Atasan PPID maksimal 30 hari kerja sejak ditemukannya alasan.</li>
+              <li>Atasan PPID memberi keputusan tertulis paling lambat 30 hari kerja.</li>
+              <li>Sengketa dapat diajukan ke Komisi Informasi Jawa Timur apabila belum memuaskan.</li>
+            </ol>
+            <button type="button" data-open-permohonan="Pengajuan Keberatan" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-semibold shadow border border-slate-700">Ajukan Formulir Keberatan</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PROJECT ==================== -->
+      <section data-page="project" class="hidden space-y-12 pb-20">
+        <div class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Portofolio &amp; Studi Kasus</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Galeri Project Manufaktur &amp; Rekayasa</h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Kumpulan rekayasa presisi, otomasi lini produksi, fabrikasi struktur berat, dan pembuatan mesin khusus untuk mitra industri di seluruh Indonesia.
+            </p>
+          </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div class="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
+            <input id="project-search" type="text" placeholder="Cari nama project, klien, atau lokasi pengerjaan..." class="w-full md:max-w-md px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-blue-500" />
+            <div id="project-page-filters" class="flex flex-wrap items-center gap-1.5"></div>
+          </div>
+          <div id="project-page-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+        </div>
+      </section>
+
+      <!-- ==================== DETAIL PROJECT ==================== -->
+      <section data-page="detail-project" class="hidden space-y-16 pb-20">
+        <div class="bg-slate-900 text-white py-14 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <button type="button" data-go="project" class="text-xs text-slate-400 hover:text-white transition-colors">&larr; Kembali ke Portofolio Project</button>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <div id="dp-kicker" class="text-xs font-semibold text-amber-400 uppercase tracking-wider"></div>
+                <h1 id="dp-title" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"></h1>
+                <div class="flex flex-wrap items-center gap-6 text-xs text-slate-300 pt-1">
+                  <span>📍 <span id="dp-location"></span></span>
+                  <span id="dp-client"></span>
+                </div>
+                <div class="pt-2">
+                  <button type="button" data-open-permohonan="Layanan Manufaktur" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md">Konsultasikan Proyek Serupa</button>
+                </div>
+              </div>
+              <div class="lg:col-span-5">
+                <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-700 aspect-[16/10]">
+                  <img id="dp-thumb" src="/images/hero-industrial.jpg" alt="Project Banner" class="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-8 space-y-10">
+            <div class="space-y-3">
+              <h2 class="text-xl sm:text-2xl font-bold">Ikhtisar Pengerjaan Proyek</h2>
+              <p id="dp-desc" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify"></p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="p-6 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50 space-y-3">
+                <h3 class="text-amber-700 dark:text-amber-400 font-bold text-sm">Tantangan Utama (Challenge)</h3>
+                <p id="dp-challenge" class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed text-justify"></p>
+              </div>
+              <div class="p-6 rounded-2xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/50 space-y-3">
+                <h3 class="text-blue-700 dark:text-blue-400 font-bold text-sm">Solusi Rekayasa (Solution)</h3>
+                <p id="dp-solution" class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed text-justify"></p>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <h3 class="text-lg font-bold">Hasil &amp; Dampak Terukur</h3>
+              <div id="dp-results" class="space-y-2.5"></div>
+            </div>
+            <div class="space-y-4">
+              <h3 class="text-lg font-bold">Dokumentasi Galeri Workshop</h3>
+              <div id="dp-gallery" class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 space-y-6">
+            <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <h4 class="font-bold text-sm border-b border-slate-100 dark:border-slate-800 pb-3">Teknologi &amp; Peralatan</h4>
+              <div id="dp-tech" class="space-y-2"></div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-3 text-xs">
+              <h4 class="font-bold border-b border-slate-100 dark:border-slate-800 pb-2">Metadata Proyek</h4>
+              <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800"><span class="text-slate-400">Kategori:</span><span id="dp-meta-cat" class="font-semibold"></span></div>
+              <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800"><span class="text-slate-400">Klien:</span><span id="dp-meta-client" class="font-semibold"></span></div>
+              <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800"><span class="text-slate-400">Tahun:</span><span id="dp-meta-year" class="font-mono font-semibold"></span></div>
+              <div class="flex justify-between py-1.5"><span class="text-slate-400">Lokasi:</span><span id="dp-meta-location" class="font-semibold text-right"></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ARTIKEL ==================== -->
+      <section data-page="artikel" class="hidden space-y-12 pb-20">
+        <div class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Publikasi, Riset &amp; Warta Mutu</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Artikel &amp; Edukasi Manufaktur</h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Artikel informatif seputar perkembangan teknologi rekayasa presisi, standar ISO, otomasi industri, dan panduan keterbukaan informasi publik.
+            </p>
+          </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div class="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
+            <input id="artikel-search" type="text" placeholder="Cari judul artikel, topik, atau penulis..." class="w-full md:max-w-md px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-blue-500" />
+            <div id="artikel-page-filters" class="flex flex-wrap items-center gap-1.5"></div>
+          </div>
+          <div id="artikel-page-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+          <div id="artikel-pagination" class="pt-6 flex items-center justify-center gap-2"></div>
+        </div>
+      </section>
+
+      <!-- ==================== DETAIL ARTIKEL ==================== -->
+      <section data-page="detail-artikel" class="hidden space-y-12 pb-20">
+        <div class="bg-slate-900 text-white pt-10 pb-16 border-b border-slate-800">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <button type="button" data-go="artikel" class="text-xs text-slate-400 hover:text-white transition-colors">&larr; Kembali ke Seluruh Artikel</button>
+            <div class="space-y-3">
+              <div id="da-cat" class="text-xs font-semibold text-amber-400 uppercase tracking-wider font-mono"></div>
+              <h1 id="da-title" class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight"></h1>
+              <div class="flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-2 border-t border-slate-800">
+                <span id="da-author" class="text-white font-medium"></span>
+                <span>·</span>
+                <span id="da-date" class="font-mono"></span>
+                <span>·</span>
+                <span id="da-readtime" class="font-mono"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 -mt-8">
+          <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 aspect-[16/9] bg-slate-900">
+            <img id="da-cover" src="/images/cnc-machining.jpg" alt="Cover Artikel" class="w-full h-full object-cover" />
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-wrap items-center justify-between gap-4">
+            <span class="text-xs text-slate-500 font-medium">Bagikan Artikel Ini:</span>
+            <div class="flex items-center gap-2">
+              <a id="da-share-wa" href="https://api.whatsapp.com/send" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium inline-flex items-center">WhatsApp</a>
+              <a id="da-share-x" href="https://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-medium inline-flex items-center">Twitter / X</a>
+              <button type="button" data-share="copy" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-medium border border-slate-200 dark:border-slate-700">Salin Tautan</button>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6 text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
+            <div id="da-content" class="space-y-5"></div>
+            <div id="da-tags" class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center gap-2"></div>
+            <div class="mt-8 p-5 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-800">
+              <h4 id="da-author-name" class="font-bold text-sm text-slate-900 dark:text-white"></h4>
+              <p id="da-author-role" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5"></p>
+            </div>
+          </div>
+
+          <div class="space-y-6 pt-4">
+            <h3 class="text-xl font-bold">Artikel &amp; Publikasi Terkait</h3>
+            <div id="da-related" class="grid grid-cols-1 sm:grid-cols-3 gap-6"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== KONTAK ==================== -->
+      <section data-page="kontak" class="hidden space-y-16 pb-20">
+        <div class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Pusat Bantuan &amp; Meja Informasi</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Hubungi Kami</h1>
+            <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+              Pintu komunikasi resmi PPID Kantor Kementerian Agama Kota Mojokerto. Kami siap melayani permohonan informasi publik serta kebutuhan rekayasa manufaktur presisi Anda.
+            </p>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-7 bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold">Kirim Pesan &amp; Konsultasi</h2>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Isi formulir di bawah ini. Tim kami merespons dalam tempo 1x24 jam kerja.</p>
+            </div>
+
+            <div id="kontak-success" class="hidden p-6 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-center space-y-4">
+              <h3 class="font-bold text-lg">✓ Pesan Anda Berhasil Diterima!</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Nomor registrasi tiket Anda:</p>
+              <div id="kontak-ticket-code" class="p-3 bg-white dark:bg-slate-800 font-mono font-bold text-blue-700 dark:text-blue-400 rounded-xl inline-block border border-slate-200 dark:border-slate-700 text-sm"></div>
+              <div>
+                <button type="button" id="kontak-reset-btn" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700">Kirim Pesan Lainnya</button>
+              </div>
+            </div>
+
+            <form id="kontak-form" class="space-y-4 text-xs">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block font-semibold mb-1">Nama Lengkap *</label>
+                  <input type="text" name="name" required placeholder="Nama Anda" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl" />
+                </div>
+                <div>
+                  <label class="block font-semibold mb-1">Alamat Email *</label>
+                  <input type="email" name="email" required placeholder="email@instansi.com" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl" />
+                </div>
+                <div>
+                  <label class="block font-semibold mb-1">Nomor Telepon / WhatsApp *</label>
+                  <input type="tel" name="phone" required placeholder="08123456789" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl font-mono" />
+                </div>
+                <div>
+                  <label class="block font-semibold mb-1">Perusahaan / Instansi</label>
+                  <input type="text" name="company" placeholder="PT / CV / Universitas (Opsional)" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl" />
+                </div>
+              </div>
+              <div>
+                <label class="block font-semibold mb-1">Subjek Pertanyaan *</label>
+                <input type="text" name="subject" required placeholder="Contoh: Konsultasi Laser Cutting atau Permohonan Data" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl" />
+              </div>
+              <div>
+                <label class="block font-semibold mb-1">Isi Pesan Lengkap *</label>
+                <textarea rows="5" name="message" required placeholder="Tuliskan pesan atau spesifikasi teknis..." class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl resize-none"></textarea>
+              </div>
+              <button type="submit" class="w-full py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-xl text-xs sm:text-sm shadow-md">Kirim Pesan Sekarang</button>
+            </form>
+          </div>
+
+          <div class="lg:col-span-5 space-y-6">
+            <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 text-xs sm:text-sm">
+              <h3 class="font-bold text-lg border-b border-slate-100 dark:border-slate-800 pb-3">Informasi Kantor &amp; Meja Layanan</h3>
+              <div><h4 class="font-bold">Alamat Kantor</h4><p class="text-slate-600 dark:text-slate-300 mt-0.5"><span data-bind="address"></span>, <span data-bind="city"></span></p></div>
+              <div><h4 class="font-bold">Telepon &amp; WhatsApp</h4><p class="text-slate-600 dark:text-slate-300 font-mono mt-0.5"><span data-bind="phone"></span> / <span data-bind="whatsapp"></span></p></div>
+              <div><h4 class="font-bold">Email Resmi</h4><p data-bind="email" class="text-slate-600 dark:text-slate-300 mt-0.5 truncate"></p></div>
+              <div><h4 class="font-bold">Jam Operasional</h4><p data-bind="hours" class="text-slate-600 dark:text-slate-300 mt-0.5"></p></div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-4 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+              <div class="rounded-2xl aspect-[16/10] bg-slate-800 flex flex-col items-center justify-center text-center p-6 text-white">
+                <p class="text-2xl mb-1">📍</p>
+                <h4 class="font-bold text-sm">PPID Kemenag Kota Mojokerto</h4>
+                <p class="text-xs text-slate-300 mt-1">Jl. Taman Siswa No. 16, Magersari, Kota Mojokerto</p>
+                <span class="mt-3 px-3 py-1 bg-white/20 rounded-full text-[10px] font-mono">-7.4725° S, 112.4385° E</span>
+              </div>
+              <a href="https://maps.google.com/?q=Kemenag+Kota+Mojokerto" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center">Buka Rute di Google Maps &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== DASHBOARD ADMIN ==================== -->
+      <section data-page="admin" class="hidden min-h-screen bg-slate-100 dark:bg-slate-950 flex flex-col md:flex-row">
+        <aside class="w-full md:w-64 bg-slate-900 text-slate-300 p-4 flex flex-col justify-between shrink-0 border-r border-slate-800">
+          <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div>
+                <div class="text-white font-extrabold text-base tracking-tight">Portal Admin PPID</div>
+                <p class="text-[11px] text-slate-400">Kemenag Kota Mojokerto</p>
+              </div>
+              <button type="button" data-toggle-theme class="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white" title="Ganti Tema">
+                <span data-theme-sun class="hidden text-amber-400">☀</span>
+                <span data-theme-moon>☾</span>
+              </button>
+            </div>
+            <nav class="space-y-1 text-xs">
+              <button type="button" data-admin-tab="overview" class="w-full text-left px-3 py-2.5 rounded-xl font-medium transition-colors">Ringkasan Dashboard</button>
+              <button type="button" data-admin-tab="permohonan" class="w-full text-left px-3 py-2.5 rounded-xl font-medium transition-colors">Kotak Permohonan (<span id="admin-perm-count">0</span>)</button>
+              <button type="button" data-admin-tab="layanan" class="w-full text-left px-3 py-2.5 rounded-xl font-medium transition-colors">Kelola Layanan (CRUD)</button>
+              <button type="button" data-admin-tab="project" class="w-full text-left px-3 py-2.5 rounded-xl font-medium transition-colors">Kelola Project (CRUD)</button>
+              <button type="button" data-admin-tab="artikel" class="w-full text-left px-3 py-2.5 rounded-xl font-medium transition-colors">Kelola Artikel (CRUD)</button>
+              <button type="button" data-admin-tab="regulasi" class="w-full text-left px-3 py-2.5 rounded-xl font-medium transition-colors">Kelola Regulasi</button>
+              <button type="button" data-admin-tab="media" class="w-full text-left px-3 py-2.5 rounded-xl font-medium transition-colors">Media Manager</button>
+              <button type="button" data-admin-tab="seo" class="w-full text-left px-3 py-2.5 rounded-xl font-medium transition-colors">Pengaturan SEO</button>
+              <button type="button" data-admin-tab="settings" class="w-full text-left px-3 py-2.5 rounded-xl font-medium transition-colors">Pengaturan Kontak</button>
+            </nav>
+          </div>
+          <div class="pt-6 border-t border-slate-800 space-y-2 text-xs">
+            <button type="button" data-go="beranda" class="w-full py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-center">Lihat Website Utama</button>
+            <button type="button" id="admin-reset-btn" class="w-full py-1.5 px-3 rounded-lg text-slate-500 hover:text-red-400 text-center text-[11px]">Reset Data Bawaan</button>
+          </div>
+        </aside>
+        <div id="admin-panel-content" class="flex-1 p-6 md:p-10 overflow-y-auto"></div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="site-footer" class="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
+          <!-- Brand & Newsletter -->
+          <div class="lg:col-span-4 space-y-4">
+            <div class="flex items-center gap-3">
+              <img src="/assets/aistudio/Logo_Kemenag_7bf78457.webp" alt="Logo Kemenag" width="48" height="48" class="w-12 h-12 shrink-0 object-contain" />
+              <div>
+                <h3 class="font-extrabold text-white text-lg tracking-tight">PPID Kemenag Kota Mojokerto</h3>
+                <p class="text-xs text-slate-400 font-medium">Manufaktur Presisi &amp; Keterbukaan Informasi</p>
+              </div>
+            </div>
+            <p class="text-xs leading-relaxed text-slate-400">
+              Unit layanan terpadu Pejabat Pengelola Informasi dan Dokumentasi (PPID) Kementerian Agama Kota Mojokerto yang mengintegrasikan akuntabilitas transparansi publik dengan rekayasa manufaktur presisi dan otomasi industri modern.
+            </p>
+            <div class="pt-2 flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-emerald-400">ISO 9001:2015 Certified</span>
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-blue-400">UU KIP No. 14/2008</span>
+            </div>
+            <div class="pt-3">
+              <p class="text-xs font-semibold text-white mb-2">Berlangganan Warta Mutu &amp; Buletin Informasi</p>
+              <div id="newsletter-success" class="hidden p-2.5 bg-emerald-950/60 border border-emerald-800 rounded-lg text-emerald-300 text-xs mb-2">
+                ✓ Terima kasih! Email Anda telah terdaftar.
+              </div>
+              <form id="footer-newsletter-form" class="flex gap-2">
+                <input type="email" required placeholder="Masukkan alamat email Anda" class="flex-1 px-3 py-2 text-xs bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500" />
+                <button type="submit" class="px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-medium shrink-0">Kirim</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Menu -->
+          <div class="lg:col-span-2 space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-white">Struktur Menu</h4>
+            <ul class="space-y-1.5 text-xs text-slate-400">
+              <li><button type="button" data-go="beranda" class="hover:text-blue-400">Beranda Utama</button></li>
+              <li><button type="button" data-go="profil" class="hover:text-blue-400">Profil &amp; Visi Misi</button></li>
+              <li><button type="button" data-go="regulasi" class="hover:text-blue-400">Regulasi Keterbukaan</button></li>
+              <li><button type="button" data-go="informasi-publik" class="hover:text-blue-400">Informasi Publik</button></li>
+              <li><button type="button" data-go="daftar-informasi" class="hover:text-blue-400">Daftar Informasi (DIP)</button></li>
+              <li><button type="button" data-go="standar-layanan" class="hover:text-blue-400">Standar Layanan &amp; SOP</button></li>
+              <li><button type="button" data-go="project" class="hover:text-blue-400">Galeri Project</button></li>
+            </ul>
+          </div>
+
+          <!-- Layanan -->
+          <div class="lg:col-span-3 space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-white">Layanan Unggulan</h4>
+            <ul id="footer-layanan-links" class="space-y-1.5 text-xs text-slate-400"></ul>
+          </div>
+
+          <!-- Kontak & Map -->
+          <div class="lg:col-span-3 space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-white">Kantor &amp; Lokasi</h4>
+            <div class="space-y-2 text-xs text-slate-400">
+              <p>📍 <span data-bind="address">Jl. Taman Siswa No. 16</span>, <span data-bind="city">Kota Mojokerto</span></p>
+              <p class="font-mono">☎ <span data-bind="phone">(0321) 322123</span></p>
+              <p class="truncate">✉ <span data-bind="email">ppid.kemenagkotamojokerto@kemenag.go.id</span></p>
+              <p>🕒 <span data-bind="hours">Senin - Jumat: 07.30 - 16.00 WIB</span></p>
+            </div>
+            <div class="mt-3 rounded-lg overflow-hidden border border-slate-800 bg-slate-900 p-2">
+              <div class="h-24 w-full bg-slate-800 rounded flex flex-col items-center justify-center text-center p-2 text-slate-400">
+                <span class="text-[11px] font-semibold text-white">Jl. Taman Siswa No. 16</span>
+                <span class="text-[10px]">Magersari, Kota Mojokerto, Jawa Timur</span>
+              </div>
+              <a href="https://maps.google.com/?q=Kemenag+Kota+Mojokerto" target="_blank" rel="noopener noreferrer" class="mt-2 text-[11px] text-blue-400 hover:text-blue-300 font-medium flex items-center justify-center">Buka di Google Maps &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>&copy; 2026 PPID Kantor Kementerian Agama Kota Mojokerto. Hak Cipta Dilindungi Undang-Undang.</p>
+          <div class="flex items-center gap-6">
+            <button type="button" data-go="regulasi" class="hover:text-slate-300">Dasar Hukum</button>
+            <button type="button" data-go="standar-layanan" class="hover:text-slate-300">Maklumat Pelayanan</button>
+            <button type="button" data-go="kontak" class="hover:text-slate-300">Peta Lokasi</button>
+            <button type="button" data-go="admin" class="hover:text-amber-400 font-mono">Portal Admin</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODAL PERMOHONAN -->
+    <div id="permohonan-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-2xl w-full border border-slate-200 dark:border-slate-800 overflow-hidden max-h-[92vh] flex flex-col">
+        <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
+          <div>
+            <h3 class="font-bold text-base">Formulir Permohonan Online PPID &amp; Manufaktur</h3>
+            <p class="text-xs text-slate-400">Layanan Terpadu Satu Pintu Kemenag Kota Mojokerto</p>
+          </div>
+          <button type="button" data-close-permohonan class="text-slate-400 hover:text-white px-2 py-1 rounded-lg hover:bg-slate-800">✕</button>
+        </div>
+        <div class="p-6 overflow-y-auto">
+          <div id="perm-success-view" class="hidden py-8 text-center space-y-4">
+            <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
+            <h4 class="text-xl font-bold">Permohonan Berhasil Terkirim!</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto">Simpan nomor tiket berikut untuk melacak status tanggapan layanan Anda:</p>
+            <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl max-w-sm mx-auto flex items-center justify-between border border-slate-200 dark:border-slate-700">
+              <span id="perm-ticket-code" class="font-mono text-base font-bold text-blue-700 dark:text-blue-400"></span>
+              <button type="button" id="copy-ticket-btn" class="px-3 py-1.5 bg-white dark:bg-slate-700 text-xs font-medium rounded-lg border border-slate-300 dark:border-slate-600">Salin Tiket</button>
+            </div>
+            <button type="button" data-close-permohonan class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg shadow-md">Selesai &amp; Tutup Jendela</button>
+          </div>
+
+          <div id="perm-form-view">
+            <form id="permohonan-form" class="space-y-4 text-xs">
+              <div>
+                <label class="block font-semibold mb-1.5">Jenis Layanan yang Dimohonkan *</label>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  <button type="button" data-perm-type="Informasi Publik" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-left">Informasi Publik</button>
+                  <button type="button" data-perm-type="Layanan Manufaktur" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-left">Layanan Manufaktur</button>
+                  <button type="button" data-perm-type="Pengajuan Keberatan" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-left">Pengajuan Keberatan</button>
+                  <button type="button" data-perm-type="Konsultasi Teknis" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-left">Konsultasi Teknis</button>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div><label class="block font-semibold mb-1">Nama Lengkap *</label><input type="text" name="fullName" required placeholder="Contoh: Budi Santoso" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg" /></div>
+                <div><label class="block font-semibold mb-1">Email Aktif *</label><input type="email" name="email" required placeholder="nama@email.com" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg" /></div>
+                <div><label class="block font-semibold mb-1">No. Telepon / WhatsApp *</label><input type="tel" name="phone" required placeholder="0812xxxxxxxx" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg font-mono" /></div>
+                <div><label class="block font-semibold mb-1">Perusahaan / Instansi</label><input type="text" name="company" placeholder="Opsional" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg" /></div>
+              </div>
+              <div><label class="block font-semibold mb-1">Subjek Permohonan *</label><input type="text" name="subject" required placeholder="Misal: Permohonan RUP 2026 atau Penawaran CNC" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg" /></div>
+              <div><label class="block font-semibold mb-1">Uraian Lengkap *</label><textarea rows="4" name="message" required placeholder="Jelaskan rincian informasi atau spesifikasi teknis..." class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg resize-none"></textarea></div>
+              <div class="pt-2 flex items-center justify-end gap-3 border-t border-slate-200 dark:border-slate-800">
+                <button type="button" data-close-permohonan class="px-4 py-2 text-slate-600 dark:text-slate-300 rounded-lg">Batal</button>
+                <button type="submit" class="px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg shadow-md">Kirim Permohonan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL PREVIEW DOKUMEN -->
+    <div id="doc-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-3xl w-full border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col max-h-[90vh]">
+        <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
+          <div>
+            <h3 id="doc-modal-title" class="font-bold text-sm sm:text-base line-clamp-1"></h3>
+            <p id="doc-modal-nomor-sub" class="text-xs text-slate-400 font-mono"></p>
+          </div>
+          <button type="button" data-close-doc class="text-slate-400 hover:text-white px-2 py-1 rounded-lg hover:bg-slate-800">✕</button>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1 bg-slate-100 dark:bg-slate-950">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-8 shadow-sm max-w-2xl mx-auto space-y-6 text-slate-800 dark:text-slate-200">
+            <div class="text-center border-b-2 border-slate-800 dark:border-slate-300 pb-5 space-y-1">
+              <p class="text-xs font-semibold tracking-widest uppercase text-slate-500">KEMENTERIAN AGAMA REPUBLIK INDONESIA</p>
+              <h2 class="text-base sm:text-lg font-bold uppercase tracking-wide">KANTOR KEMENTERIAN AGAMA KOTA MOJOKERTO</h2>
+              <p class="text-xs text-slate-500">PEJABAT PENGELOLA INFORMASI DAN DOKUMENTASI (PPID)</p>
+              <p class="text-[11px] text-slate-500 font-mono">Jl. Taman Siswa No. 16, Kota Mojokerto, Jawa Timur 61318 | Telp: (0321) 322123</p>
+            </div>
+            <h4 id="doc-modal-heading" class="text-center font-bold text-base uppercase underline underline-offset-4"></h4>
+            <p class="text-justify text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Dokumen ini merupakan publikasi resmi yang diterbitkan oleh Pejabat Pengelola Informasi dan Dokumentasi (PPID) Kantor Kementerian Agama Kota Mojokerto sesuai Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik.
+            </p>
+            <div class="border border-slate-200 dark:border-slate-800 rounded-lg p-4 bg-slate-50 dark:bg-slate-800/50 space-y-2 text-xs">
+              <div class="flex justify-between"><span class="text-slate-500">Nomor Registrasi:</span><span id="doc-modal-nomor" class="font-mono font-semibold"></span></div>
+              <div class="flex justify-between"><span class="text-slate-500">Klasifikasi Informasi:</span><span id="doc-modal-type" class="font-medium"></span></div>
+              <div class="flex justify-between"><span class="text-slate-500">Ukuran Berkas:</span><span id="doc-modal-size" class="font-mono"></span></div>
+              <div class="flex justify-between"><span class="text-slate-500">Tanggal Terbit:</span><span id="doc-modal-date"></span></div>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-between items-end text-xs">
+              <span class="font-mono text-[11px] text-slate-400">TERVERIFIKASI RESMI PPID</span>
+              <span class="px-3 py-1 border-2 border-emerald-600 text-emerald-600 rounded font-bold text-[10px] uppercase">SAH &amp; AUTENTIK</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 py-3.5 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0">
+          <button type="button" id="doc-print-btn" class="px-3 py-2 text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Cetak Pratinjau</button>
+          <div class="flex items-center gap-2">
+            <button type="button" data-close-doc class="px-4 py-2 text-xs text-slate-600 dark:text-slate-400">Tutup</button>
+            <button type="button" id="doc-download-btn" class="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg text-xs font-semibold shadow-sm">Unduh Berkas Lengkap</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL ADMIN CRUD -->
+    <div id="admin-crud-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-xl w-full border border-slate-200 dark:border-slate-800 overflow-hidden max-h-[90vh] flex flex-col">
+        <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
+          <h3 id="admin-crud-title" class="font-bold text-base">Kelola Data</h3>
+          <button type="button" data-close-crud class="text-slate-400 hover:text-white px-2 py-1 rounded-lg hover:bg-slate-800">✕</button>
+        </div>
+        <form id="admin-crud-form" class="p-6 overflow-y-auto space-y-4 text-xs">
+          <div id="admin-crud-fields" class="space-y-4"></div>
+          <div class="pt-3 flex items-center justify-end gap-3 border-t border-slate-200 dark:border-slate-800">
+            <button type="button" data-close-crud class="px-4 py-2 text-slate-600 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Batal</button>
+            <button type="submit" class="px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg shadow-md">Simpan Data</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL KONFIRMASI ADMIN -->
+    <div id="admin-confirm-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-md w-full border border-slate-200 dark:border-slate-800 overflow-hidden">
+        <div class="p-6 space-y-4">
+          <h3 id="admin-confirm-title" class="font-bold text-base text-slate-900 dark:text-white">Konfirmasi Tindakan</h3>
+          <p id="admin-confirm-message" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+          <div class="flex items-center justify-end gap-3 pt-2">
+            <button type="button" data-close-confirm class="px-4 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Batal</button>
+            <button type="button" id="admin-confirm-yes" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold rounded-lg shadow-sm">Ya, Lanjutkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vanilla JavaScript (Zero React / Pure HTML5 Portal) -->
+    <script defer src="/js/data.js"></script>
+    <script defer src="/js/app.js"></script>
   </body>
 </html>
-
